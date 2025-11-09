@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Auth Section -->
+        <div id="auth-section" class="section">
+            <div class="auth-container">
+                <h1>Task Manager</h1>
+                
+                <div id="auth-forms">
+                    <div id="login-form" class="auth-form active">
+                        <h2>Login</h2>
+                        <form id="loginForm">
+                            <input type="text" id="loginUsername" placeholder="Username" required>
+                            <input type="password" id="loginPassword" placeholder="Password" required>
+                            <button type="submit">Login</button>
+                        </form>
+                        <p>Don't have an account? <a href="#" id="show-register">Register</a></p>
+                    </div>
+                    
+                    <div id="register-form" class="auth-form">
+                        <h2>Register</h2>
+                        <form id="registerForm">
+                            <input type="text" id="registerUsername" placeholder="Username" required>
+                            <input type="email" id="registerEmail" placeholder="Email" required>
+                            <input type="password" id="registerPassword" placeholder="Password" required>
+                            <button type="submit">Register</button>
+                        </form>
+                        <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main App Section -->
+        <div id="app-section" class="section hidden">
+            <header class="header">
+                <h1>Task Manager</h1>
+                <div class="user-info">
+                    <span id="userWelcome">Welcome, User!</span>
+                    <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+                </div>
+            </header>
+
+            <main class="main-content">
+                <!-- Task Form -->
+                <div class="task-form-container">
+                    <form id="taskForm" class="task-form">
+                        <input type="text" id="taskTitle" placeholder="Task title" required>
+                        <textarea id="taskDescription" placeholder="Description"></textarea>
+                        <div class="form-row">
+                            <select id="taskPriority">
+                                <option value="low">Low Priority</option>
+                                <option value="medium" selected>Medium Priority</option>
+                                <option value="high">High Priority</option>
+                            </select>
+                            <input type="date" id="taskDueDate">
+                            <button type="submit" class="btn btn-primary">Add Task</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Task Filters -->
+                <div class="filters">
+                    <button class="filter-btn active" data-status="all">All</button>
+                    <button class="filter-btn" data-status="todo">To Do</button>
+                    <button class="filter-btn" data-status="in_progress">In Progress</button>
+                    <button class="filter-btn" data-status="done">Done</button>
+                </div>
+
+                <!-- Tasks List -->
+                <div id="tasksContainer" class="tasks-container">
+                    <!-- Tasks will be dynamically inserted here -->
+                </div>
+            </main>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
